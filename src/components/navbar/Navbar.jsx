@@ -13,12 +13,16 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import './Navbar.css';
 
+import CartWidget from '../CartWidget/CartWidget.jsx';
+
 const pages = ['Productos', 'Arma tu PC', 'Contacto'];
 const settings = ['Perfil', 'Cuenta', 'Mis pedidos', 'Cerrar sesión'];
+const productOptions = ['Notebooks', 'PC de Escritorio', 'Consolas'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElProducts, setAnchorElProducts] = React.useState(null);
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -26,13 +30,18 @@ function ResponsiveAppBar() {
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
     };
+    const handleOpenProductsMenu = (event) => {
+        setAnchorElProducts(event.currentTarget);
+    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
     };
-
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
+    };
+    const handleCloseProductsMenu = () => {
+        setAnchorElProducts(null);
     };
 
     return (
@@ -46,7 +55,7 @@ function ResponsiveAppBar() {
                         component="a"
                         href="#app-bar-with-responsive-menu"
                         sx={{
-                            mr: 2,
+                            mr: 3,
                             display: { xs: 'none', md: 'flex' },
                             fontFamily: 'monospace',
                             fontWeight: 700,
@@ -57,8 +66,8 @@ function ResponsiveAppBar() {
                     >
                         TECNO-PLAY
                     </Typography>
-
-                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                    {/* Boton hamburguesa */}
+                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none' } }}>
                         <IconButton
                             size="large"
                             aria-label="account of current user"
@@ -92,6 +101,7 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
+                    {/* Titulo tecnoplay responsive */}
                     <Typography
                         variant="h5"
                         noWrap
@@ -110,21 +120,58 @@ function ResponsiveAppBar() {
                     >
                         TECNO-PLAY
                     </Typography>
-                    <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+                    {/* Paginas adicionales */}
+                    <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
                         {pages.map((page) => (
-                            <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
-                            >
-                                {page}
-                            </Button>
+                            page === 'Productos' ? (
+                                <Box key={page}>
+                                    <Button
+                                        onClick={handleOpenProductsMenu}
+                                        sx={{ my: 2, color: 'white', display: 'block' }}
+                                    >
+                                        {page}
+                                    </Button>
+                                    <Menu
+                                        anchorEl={anchorElProducts}
+                                        anchorOrigin={{
+                                            vertical: 'bottom',
+                                            horizontal: 'left',
+                                        }}
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'left',
+                                        }}
+                                        open={Boolean(anchorElProducts)}
+                                        onClose={handleCloseProductsMenu}
+                                    >
+                                        {productOptions.map((option) => (
+                                            <MenuItem key={option} onClick={handleCloseProductsMenu}>
+                                                {option}
+                                            </MenuItem>
+                                        ))}
+                                    </Menu>
+                                </Box>
+                            ) : (
+                                <Button
+                                    key={page}
+                                    onClick={handleCloseNavMenu}
+                                    sx={{ my: 2, color: 'white', display: 'block' }}
+                                >
+                                    {page}
+                                </Button>
+                            )
                         ))}
                     </Box>
-                    <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/src/assets/react.svg" />
+                    <CartWidget />
+                    {/* Menu del usuario */}
+                    <Box sx={{ flexGrow: 0, p: 0 }}>
+                        <Tooltip title="Open settings" sx={{}}>
+                            <IconButton
+                                onClick={handleOpenUserMenu}
+                                sx={{m:1 , width: 47, height: 47 }}
+                            >
+                                <img className="tamañoAvatar" src="/src/assets/images/react.svg" alt="Brian Sarmiento"/>
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -155,4 +202,5 @@ function ResponsiveAppBar() {
         </AppBar>
     );
 }
+
 export default ResponsiveAppBar;
