@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./CantidadCarrito.css";
+import './CantidadCarrito.css'
 
 const CantidadCarrito = () => {
     const [cantidad, setCantidad] = useState(0);
@@ -13,10 +13,7 @@ const CantidadCarrito = () => {
     }
 
     useEffect(() => {
-        // const carrito = JSON.parse(localStorage.getItem("carrito"));
-        // if (carrito) {
-        //     setCantidad(carrito.length);
-        // }
+        
     }, []);
 
     return (
