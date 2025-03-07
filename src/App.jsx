@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import ResponsiveAppBar from './components/Navbar/Navbar.jsx'
 import CantidadCarrito from './components/CantidadCarrito/CantidadCarrito.jsx'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.jsx'
-import ComponentTests from './components/ComponentTests/ComponentTests.jsx'
+// import ComponentTests from './components/ComponentTests/ComponentTests.jsx'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 function App() {

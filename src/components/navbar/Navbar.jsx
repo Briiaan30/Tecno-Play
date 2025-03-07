@@ -11,9 +11,11 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+
+import { Link } from 'react-router-dom';
+import CartWidget from '../CartWidget/CartWidget.jsx';
 import './Navbar.css';
 
-import CartWidget from '../CartWidget/CartWidget.jsx';
 
 const pages = ['Productos', 'Arma tu PC', 'Contacto'];
 const settings = ['Perfil', 'Cuenta', 'Mis pedidos', 'Cerrar sesión'];
@@ -48,7 +50,9 @@ function ResponsiveAppBar() {
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    <Link to="/" style={{ textDecoration: 'none' }}>
                     <img className='logo' src="/src/assets/images/logoTecnoPlay.png" alt="" />
+                    </Link>
                     <Typography
                         variant="h6"
                         noWrap
@@ -163,7 +167,9 @@ function ResponsiveAppBar() {
                             )
                         ))}
                     </Box>
+                    <Link to="/cart">
                     <CartWidget />
+                    </Link>
                     {/* Menu del usuario */}
                     <Box sx={{ flexGrow: 0, p: 0 }}>
                         <Tooltip title="Open settings" sx={{}}>
