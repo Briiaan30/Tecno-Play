@@ -167,7 +167,7 @@ function ResponsiveAppBar() {
                             )
                         ))}
                     </Box>
-                    <Link to="/cart">
+                    <Link to="/cart" style={{ textDecoration: 'none' }}>
                     <CartWidget />
                     </Link>
                     {/* Menu del usuario */}

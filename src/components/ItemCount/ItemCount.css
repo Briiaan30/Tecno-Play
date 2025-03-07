@@ -1,0 +1,29 @@
+.ItemCount {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: block;
+}
+
+button {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 2px;
+    padding: 5px 10px;
+}
+
+input {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin: 2px;
+    padding: 5px 10px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

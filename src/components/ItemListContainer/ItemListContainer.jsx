@@ -1,14 +1,18 @@
 import { useState } from "react";
 import "./ItemListContainer.css";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import ItemList from "../ItemList/ItemList";
 
 const ItemListContainer = ({ greeting }) => {
     const [productos, setProductos] = useState([]);
 
     return (
-        <Link to="/cart">
+        <>
+        <NavLink to="/" style={{ textDecoration: 'none' }}>
             <h1>{greeting}</h1>
-        </Link>
+        </NavLink>
+        <ItemList productos={producto}/>
+        </>
     );
 }
 
