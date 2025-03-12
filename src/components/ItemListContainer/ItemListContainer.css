@@ -1,4 +1,8 @@
-h1{
+h1, h2, .item{
     font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
+}
+
+.item{
+    margin: 10px 5px;
+    padding: 10px;
 }

@@ -12,14 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import CartWidget from '../CartWidget/CartWidget.jsx';
 import './Navbar.css';
 
 
 const pages = ['Productos', 'Arma tu PC', 'Contacto'];
 const settings = ['Perfil', 'Cuenta', 'Mis pedidos', 'Cerrar sesión'];
-const productOptions = ['Notebooks', 'PC de Escritorio', 'Consolas'];
+const productOptions = ['Electronicos'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -46,18 +46,24 @@ function ResponsiveAppBar() {
         setAnchorElProducts(null);
     };
 
+    const selectCategory = (option) => {
+        if (option === "Electronicos") {
+            return "/category/electronics"
+        }
+    }
+
     return (
         <AppBar position="static">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Link to="/" style={{ textDecoration: 'none' }}>
-                    <img className='logo' src="/src/assets/images/logoTecnoPlay.png" alt="" />
+                        <img className='logo' src="/src/assets/images/logoTecnoPlay.png" alt="" />
                     </Link>
+                    {/* Titulo Tecno Play No Responsive */}
                     <Typography
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 3,
                             display: { xs: 'none', md: 'flex' },
@@ -68,8 +74,11 @@ function ResponsiveAppBar() {
                             textDecoration: 'none',
                         }}
                     >
-                        TECNO-PLAY
+                        <NavLink to="/" style={{ textDecoration: 'none', color: 'white' }}>
+                            TECNO-PLAY
+                        </NavLink>
                     </Typography>
+
                     {/* Boton hamburguesa */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'none' } }}>
                         <IconButton
@@ -105,12 +114,13 @@ function ResponsiveAppBar() {
                             ))}
                         </Menu>
                     </Box>
-                    {/* Titulo tecnoplay responsive */}
+
+                    {/* Titulo Tecno Play Responsive */}
                     <Typography
                         variant="h5"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        // href="#app-bar-with-responsive-menu"
                         sx={{
                             mr: 2,
                             display: { xs: 'flex', md: 'none' },
@@ -120,10 +130,10 @@ function ResponsiveAppBar() {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
-                        }}
-                    >
+                        }}>
                         TECNO-PLAY
                     </Typography>
+
                     {/* Paginas adicionales */}
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -151,7 +161,10 @@ function ResponsiveAppBar() {
                                     >
                                         {productOptions.map((option) => (
                                             <MenuItem key={option} onClick={handleCloseProductsMenu}>
-                                                {option}
+                                                {/* {option}  */}
+                                                <NavLink to={selectCategory(option)} style={{ textDecoration: 'none', color: 'black' }}>
+                                                    {option}
+                                                </NavLink>
                                             </MenuItem>
                                         ))}
                                     </Menu>
@@ -160,24 +173,23 @@ function ResponsiveAppBar() {
                                 <Button
                                     key={page}
                                     onClick={handleCloseNavMenu}
-                                    sx={{ my: 2, color: 'white', display: 'block' }}
-                                >
+                                    sx={{ my: 2, color: 'white', display: 'block' }}>
                                     {page}
                                 </Button>
                             )
                         ))}
                     </Box>
+                    {/* Carrito de compras */}
                     <Link to="/cart" style={{ textDecoration: 'none' }}>
-                    <CartWidget />
+                        <CartWidget />
                     </Link>
                     {/* Menu del usuario */}
                     <Box sx={{ flexGrow: 0, p: 0 }}>
                         <Tooltip title="Open settings" sx={{}}>
                             <IconButton
                                 onClick={handleOpenUserMenu}
-                                sx={{m:1 , width: 47, height: 47 }}
-                            >
-                                <img className="tamañoAvatar" src="/src/assets/images/react.svg" alt="Brian Sarmiento"/>
+                                sx={{ m: 1, width: 47, height: 47 }}>
+                                <img className="tamañoAvatar" src="/src/assets/images/react.svg" alt="Brian Sarmiento" />
                             </IconButton>
                         </Tooltip>
                         <Menu
