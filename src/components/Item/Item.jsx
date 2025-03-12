@@ -1,22 +1,13 @@
-import { useEffect, useState } from "react";
 import "./Item.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import ItemList from "../ItemList/ItemList.jsx";
 
-const Item = ({item}) => {
-
-
-    return(
-        <>
-        <div className="item">
-            <h1>{item.title}</h1>
-            <img src={item.image} alt={item.title}/>
-            <p>{item.description}</p>
-            <p>${item.price}</p>
-            <NavLink to={`/item/${item.id}`}>Ver detalle</NavLink>
+const Item = ({ producto, navigate }) => {
+    return (
+        <div className="item-card" onClick={() => navigate(`/item/${producto.id}`)}>
+            <h3>{producto.title}</h3>
+            <img src={producto.image} alt={producto.title} width="100px" />
+            <p>Precio: ${producto.price}</p>
         </div>
-        </>
-    )
-}
+    );
+};
 
 export default Item;

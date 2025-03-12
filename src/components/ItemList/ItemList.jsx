@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
 import Item from "../Item/Item.jsx";
 
-const ItemList = ({ prod }) => {
-
-    console.log('consoleLog desde itemList:',prod)
-
+const ItemList = ({ prod, navigate }) => {
+    console.log(prod)
     return (
-        <>
-        <h1>hola desde itemlist</h1>
-            {prod.map((item) => {
-                <Item key={prod.id} producto={item} />
-            })}
-        </>
-    )
-}
+        <div className="item-container">
+            {prod.length > 0 ? (
+                prod.map((item) => (
+                    <Item key={item.id} producto={item} navigate={navigate} />
+                ))
+            ) : (
+                <p>No hay productos en esta categoría</p>
+            )}
+        </div>
+    );
+};
 
 export default ItemList;

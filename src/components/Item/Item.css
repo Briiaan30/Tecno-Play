@@ -1,0 +1,37 @@
+.item-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+}
+
+.item-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 10rem;
+    height: 20rem;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #e3f1ff;
+}
+
+.item-card:hover{
+    transition: 0.2s ease-in-out;
+    transform: scale(1.1);
+}
+
+.item-card img{
+    width: 70%;
+    border-radius: 10px;
+}
+
+.item-card h3{
+    font-size: 14px;
+    text-align: center;
+}
