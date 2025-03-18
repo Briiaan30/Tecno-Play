@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useFetch } from "../../customHooks/useFetch";
+import Loading from "../Loading/Loading";
 import './ItemDetailContainer.css';
 
 const ItemDetailContainer = () => {
@@ -7,9 +8,7 @@ const ItemDetailContainer = () => {
     const { id } = useParams();
     const { data, loading } = useFetch(`https://fakestoreapi.com/products/${id}`);
     console.log(data);
-    if (loading) {
-        return <h1>Cargando...</h1>
-    }
+    if (loading) return <Loading loading={loading}/>
 
     return (
         <div className="itemDetail">

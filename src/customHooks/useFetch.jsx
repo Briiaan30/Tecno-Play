@@ -11,7 +11,6 @@ export const useFetch = (url) => {
             .then(res => setData(res))
             .catch(error => {
                 setError(true)
-                // setData(undefined)
                 console.error(error)
             })
             .finally(() => setLoading(false))

@@ -5,7 +5,7 @@ import ItemListContainer from './components/ItemListContainer/ItemListContainer.
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer.jsx'
 import CantidadCarrito from './components/CantidadCarrito/CantidadCarrito.jsx'
 // import ItemCount from './components/ItemCount/ItemCount.jsx'
-// import ComponentTests from './components/ComponentTests/ComponentTests.jsx'
+import ComponentTests from './components/ComponentTests/ComponentTests.jsx'
 
 
 function App() {
