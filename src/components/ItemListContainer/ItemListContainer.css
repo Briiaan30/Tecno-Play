@@ -1,5 +1,7 @@
 h1, h2, .item{
     font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: rgb(0, 0, 90);
 }
 
 .item{
