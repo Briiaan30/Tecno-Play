@@ -1,9 +1,10 @@
 import Item from "../Item/Item.jsx";
+import styles from './ItemList.module.css';
 
 const ItemList = ({ prod, navigate }) => {
-    console.log(prod)
+    console.log('Productos en ItemList:',prod)
     return (
-        <div className="item-container">
+        <div className={styles['item-container']}>
             {prod.length > 0 ? (
                 prod.map((item) => (
                     <Item key={item.id} producto={item} navigate={navigate} />

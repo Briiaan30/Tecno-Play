@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import './ItemCount.css';
+import styles from './ItemCount.module.css';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
     const [count, setCount] = useState(initial)
@@ -36,7 +36,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     };
 
     return (
-        <div className='ItemCount'>
+        <div className={styles['ItemCount']}>
             <button onClick={sumar}>+</button>
             <input type='number' onChange={(event => onChangeInput(parseInt(event.target.value)))} value={count}/>
             <button onClick={restar}>-</button>

@@ -19,7 +19,7 @@ import './Navbar.css';
 
 const pages = ['Productos', 'Arma tu PC', 'Contacto'];
 const settings = ['Perfil', 'Cuenta', 'Mis pedidos', 'Cerrar sesión'];
-const productOptions = ['Electronicos'];
+const productOptions = ['Electronicos','Accesorios'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -48,7 +48,11 @@ function ResponsiveAppBar() {
 
     const selectCategory = (option) => {
         if (option === "Electronicos") {
-            return "/category/electronics"
+            return `/category/1`
+        }
+
+        if (option === "Accesorios") {
+            return "/category/2"
         }
     }
 
