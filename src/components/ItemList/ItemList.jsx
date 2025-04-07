@@ -2,7 +2,7 @@ import Item from "../Item/Item.jsx";
 import styles from './ItemList.module.css';
 
 const ItemList = ({ prod, navigate }) => {
-    console.log('Productos en ItemList:',prod)
+    // console.log('Productos en ItemList:',prod)
     return (
         <div className={styles['item-container']}>
             {prod.length > 0 ? (

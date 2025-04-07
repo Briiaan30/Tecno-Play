@@ -1,5 +1,6 @@
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from './Item.module.css';
+
 const Item = ({ producto }) => {
 
     const navigate = useNavigate();

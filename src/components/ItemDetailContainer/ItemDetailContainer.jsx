@@ -11,19 +11,19 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true);
     const [producto, setProducto] = useState([]);
 
-    useEffect(() => {
-        const getItem = async () => {
-            setLoading(true);
-            try {
-                const productRef = doc(db, 'products', id);
-                const data = await getDoc(productRef);
-                const item = { id: data.id, ...data.data() };
-                setProducto(item)
-            } catch (error) {
-                console.error("Error al obtener el producto:", error);
-            } finally { setLoading(false) }
-        }
+    const getItem = async () => {
+        setLoading(true);
+        try {
+            const productRef = doc(db, 'products', id);
+            const data = await getDoc(productRef);
+            const item = { id: data.id, ...data.data() };
+            setProducto(item)
+        } catch (error) {
+            console.error("Error al obtener el producto:", error);
+        } finally { setLoading(false) }
+    }
 
+    useEffect(() => {
         getItem();
     }, [])
 

@@ -13,40 +13,40 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
     const { cartContext } = useContext(CartContext);
-    console.log('contexto',cartContext)
+    console.log('contexto', cartContext)
     // console.log("categoryId:", categoryId);
     // console.log("categorias:", categorias);
 
+    const productRef = categoryId
+        ? query(collection(db, "products"), where("categoryId", "==", parseInt(categoryId)))
+        : collection(db, "products");
+
+    const getProduct = async () => {
+        setLoading(true);
+        try {
+            const data = await getDocs(productRef);
+            const productsList = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+            setProducts(productsList);
+        } catch (error) {
+            console.error("Error al obtener productos:", error);
+        } finally { setLoading(false); }
+    };
+
+    const getCategory = async () => {
+        setLoading(true);
+        try {
+            const data = await getDocs(collection(db, "categorias"));
+            const categoriesList = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+            setCategorias(categoriesList);
+        } catch (error) {
+            console.error("Error al obtener categorias:", error);
+        } finally { setLoading(false) }
+    }
+
     useEffect(() => {
-        const productRef = categoryId
-            ? query(collection(db, "products"), where("categoryId", "==", parseInt(categoryId)))
-            : collection(db, "products");
-
-        const getProduct = async () => {
-            setLoading(true);
-            try {
-                const data = await getDocs(productRef);
-                const productsList = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-                setProducts(productsList);
-            } catch (error) {
-                console.error("Error al obtener productos:", error);
-            } finally { setLoading(false); }
-        };
         getProduct();
-
-        const getCategory = async () => {
-            setLoading(true);
-            try {
-                const data = await getDocs(collection(db, "categorias"));
-                const categoriesList = data.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
-                setCategorias(categoriesList);
-            } catch (error) {
-                console.error("Error al obtener categorias:", error);
-            } finally { setLoading(false) }
-        }
-
         getCategory();
-    }, [categoryId]); // 🔥 Se ejecuta cada vez que `categoryId` cambia
+    }, [categoryId]);
 
     if (loading) return <Loading loading={loading} />;
     if (!products.length) return <h2>No hay productos disponibles</h2>;
