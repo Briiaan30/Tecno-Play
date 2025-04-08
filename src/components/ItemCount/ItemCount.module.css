@@ -5,14 +5,14 @@
     display: block;
 }
 
-button {
+.ItemCount button {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     margin: 2px;
     padding: 5px 10px;
 }
 
-input {
+.ItemCount input {
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     margin: 2px;

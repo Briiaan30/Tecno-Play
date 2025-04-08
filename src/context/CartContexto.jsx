@@ -20,19 +20,28 @@ export const CartComponentContext = ({ children }) => {
             setCart([...cart, { ...item, quantity: item.quantity }])
         }
     }
-
-    const countCart = () => {
-        return cart.reduce((acc, prod) => acc + prod.quantity, 0)
-    }
-
+    
     const removeOfCart = (id) =>{
         const filteredCart = cart.filter((item) => item.id !== id)
         setCart(filteredCart)
     }
 
+    const clearCart = () => {
+        setCart([])
+    }
+
+    const countCart = () => {
+        return cart.reduce((acc, prod) => acc + prod.quantity, 0)
+    }
+
+    const totalPrice = () => {
+        return cart.reduce((acc, prod) => acc + (prod.price * prod.quantity), 0)
+    }
+
+
     console.log('carrito:', cart)
     return (
-        <CartContext.Provider value={{ cart, setCart, addToCart, countCart, removeOfCart }}>
+        <CartContext.Provider value={{ cart, setCart, addToCart, countCart, removeOfCart, clearCart, totalPrice }}>
             {children}
         </CartContext.Provider>
     )

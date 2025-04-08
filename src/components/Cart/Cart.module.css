@@ -1,0 +1,44 @@
+.buyerContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.buyerContainer h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+}
+
+.buyerContainer form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.buyerContainer input{
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.buyerContainer button{
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buyerContainer button:hover{
+    background-color: #218838;
+    scale: 1.05;
+    transition: all 0.1s ease-in-out;
+}
