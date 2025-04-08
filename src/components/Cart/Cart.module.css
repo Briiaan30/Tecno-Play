@@ -42,3 +42,74 @@
     scale: 1.05;
     transition: all 0.1s ease-in-out;
 }
+
+.nroPedido{
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+}
+
+.cartDetails{
+    display: flex;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+    background-color: lightgoldenrodyellow;
+    width: 100%;
+}
+
+.cartDetails p{
+    align-self: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+.cartDetails h2{
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+}
+
+.cartList{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.cartItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.cartImage{
+    width: 20%;
+    height: 20%;
+    border-radius: 5px;
+}
+
+.cartInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    width:60%
+}
+
+.clearButton{
+    margin-right: 20px;
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}

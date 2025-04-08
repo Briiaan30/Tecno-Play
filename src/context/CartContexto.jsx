@@ -6,10 +6,7 @@ export const CartComponentContext = ({ children }) => {
     const [cart, setCart] = useState([])
 
     const addToCart = (item) => {
-        // console.log('item:', item)
         const foundItem = cart.find((prod) => prod.id === item.id)
-        // console.log('foundItem:', foundItem)
-
         if (foundItem) {
             setCart(cart.map((prod) =>
                 prod.id === item.id

@@ -1,10 +1,10 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { CartContext } from '../../context/CartContexto.jsx'
 import styles from './CantidadCarrito.module.css';
 
 const CantidadCarrito = ({ prod }) => {
     const [cantidad, setCantidad] = useState(0);
-    const [stock, setStock] = useState(prod.stock); // Inicializa el stock del producto
+    const [stock, setStock] = useState(prod.stock)
     const { addToCart } = useContext(CartContext)
 
     const sumar = () => {
