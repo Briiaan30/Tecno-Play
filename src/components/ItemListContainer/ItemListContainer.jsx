@@ -13,9 +13,6 @@ const ItemListContainer = () => {
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
     const { cartContext } = useContext(CartContext);
-    console.log('contexto', cartContext)
-    // console.log("categoryId:", categoryId);
-    // console.log("categorias:", categorias);
 
     const productRef = categoryId
         ? query(collection(db, "products"), where("categoryId", "==", parseInt(categoryId)))

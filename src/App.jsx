@@ -7,9 +7,8 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart.jsx'
 
 function App() {
-  // Agregar el StricMode antes de entregar
   return (
-    <>
+    <StrictMode>
       <CartComponentContext>
         <BrowserRouter>
           <ResponsiveAppBar />
@@ -21,7 +20,7 @@ function App() {
           </Routes>
         </BrowserRouter>
       </CartComponentContext>
-    </>
+    </StrictMode>
   )
 }
 

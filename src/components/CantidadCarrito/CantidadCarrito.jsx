@@ -21,7 +21,6 @@ const CantidadCarrito = ({ prod }) => {
         setStock(stock - cantidad) // Actualiza el stock al agregar al carrito
     }
 
-    console.log('prod:', prod)
     return (
         <div className={styles['boton']}>
             <button className={styles['botonesMasMenos']} onClick={restar}>-</button>
