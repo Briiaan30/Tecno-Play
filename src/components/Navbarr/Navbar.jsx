@@ -19,7 +19,7 @@ import './Navbar.css';
 
 const pages = ['Productos', 'Arma tu PC', 'Contacto'];
 const settings = ['Perfil', 'Cuenta', 'Mis pedidos', 'Cerrar sesión'];
-const productOptions = ['Electronicos','Accesorios'];
+const productOptions = ['Electronicos', 'Accesorios'];
 
 function ResponsiveAppBar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -161,12 +161,11 @@ function ResponsiveAppBar() {
                                         onClose={handleCloseProductsMenu}
                                     >
                                         {productOptions.map((option) => (
-                                            <MenuItem key={option} onClick={handleCloseProductsMenu}>
-                                                {/* {option}  */}
-                                                <NavLink to={selectCategory(option)} style={{ textDecoration: 'none', color: 'black' }}>
+                                            <NavLink to={selectCategory(option)} style={{ textDecoration: 'none', color: 'black' }}>
+                                                <MenuItem key={option} onClick={handleCloseProductsMenu}>
                                                     {option}
-                                                </NavLink>
-                                            </MenuItem>
+                                                </MenuItem>
+                                            </NavLink>
                                         ))}
                                     </Menu>
                                 </Box>
