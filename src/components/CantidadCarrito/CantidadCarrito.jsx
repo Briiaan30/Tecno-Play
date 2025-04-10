@@ -38,5 +38,3 @@ const CantidadCarrito = ({ prod }) => {
 };
 
 export default CantidadCarrito;
-
-// Actualizar el stock cuando se agrega al carrito. Actualizar el firestore

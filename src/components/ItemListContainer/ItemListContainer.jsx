@@ -2,7 +2,6 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import { query, getDocs, collection, where } from "firebase/firestore";
 import { db } from "../../firebase/client.js";
-import { CartContext } from "../../context/CartContexto.jsx";
 import Loading from "../Loading/Loading.jsx";
 import ItemList from "../ItemList/ItemList.jsx";
 import styles from "./ItemListContainer.module.css";
@@ -12,7 +11,6 @@ const ItemListContainer = () => {
     const [categorias, setCategorias] = useState([]);
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
-    const { cartContext } = useContext(CartContext);
 
     const productRef = categoryId
         ? query(collection(db, "products"), where("categoryId", "==", parseInt(categoryId)))
@@ -51,7 +49,7 @@ const ItemListContainer = () => {
     const catElegida = categorias.find((cat) => cat.id === parseInt(categoryId));
 
     return (
-        <div>
+        <div className={styles['container']}>
             <h1>{categoryId ? `Categoría: ${catElegida.name}` : "Todos los productos"}</h1>
             <ItemList prod={products} />
         </div>

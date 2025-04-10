@@ -17,8 +17,8 @@ export const CartComponentContext = ({ children }) => {
             setCart([...cart, { ...item, quantity: item.quantity }])
         }
     }
-    
-    const removeOfCart = (id) =>{
+
+    const removeOfCart = (id) => {
         const filteredCart = cart.filter((item) => item.id !== id)
         setCart(filteredCart)
     }

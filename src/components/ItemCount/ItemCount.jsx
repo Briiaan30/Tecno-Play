@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from './ItemCount.module.css';
 
 const ItemCount = ({ stock, initial, onAdd }) => {
@@ -27,7 +27,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 
     const onChangeInput = (nro) => {
         if (isNaN(nro) || nro < 1) {
-            setCount(1); 
+            setCount(1);
         } else if (nro > stockDisponible) {
             setCount(stockDisponible);
         } else {
@@ -38,7 +38,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
     return (
         <div className={styles['ItemCount']}>
             <button onClick={sumar}>+</button>
-            <input type='number' onChange={(event => onChangeInput(parseInt(event.target.value)))} value={count}/>
+            <input type='number' onChange={(event => onChangeInput(parseInt(event.target.value)))} value={count} />
             <button onClick={restar}>-</button>
             <div>
                 <button onClick={agregar}>Agregar al carrito</button>

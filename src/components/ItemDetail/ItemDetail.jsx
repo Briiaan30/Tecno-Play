@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import CantidadCarrito from "../CantidadCarrito/CantidadCarrito.jsx";
 import styles from './ItemDetail.module.css';
 

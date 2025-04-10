@@ -61,7 +61,7 @@ function ResponsiveAppBar() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Link to="/" style={{ textDecoration: 'none' }}>
-                        <img className='logo' src="/src/assets/images/logoTecnoPlay.png" alt="" />
+                        <img className='logo' src="/public/assets/images/logoTecnoPlay.png" alt="" />
                     </Link>
                     {/* Titulo Tecno Play No Responsive */}
                     <Typography
@@ -190,7 +190,7 @@ function ResponsiveAppBar() {
                             <IconButton
                                 onClick={handleOpenUserMenu}
                                 sx={{ m: 1, width: 47, height: 47 }}>
-                                <img className="tamañoAvatar" src="/src/assets/images/react.svg" alt="Brian Sarmiento" />
+                                <img className="tamañoAvatar" src="/public/assets/images/react.svg" alt="Brian Sarmiento" />
                             </IconButton>
                         </Tooltip>
                         <Menu

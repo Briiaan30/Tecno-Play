@@ -74,8 +74,6 @@ const Cart = () => {
         setBuyer({ ...buyer, [name]: value })
     }
 
-    // Falta agregar el boton de eliminar un producto del carrito
-
     return (
         <>
             {loading ? (
